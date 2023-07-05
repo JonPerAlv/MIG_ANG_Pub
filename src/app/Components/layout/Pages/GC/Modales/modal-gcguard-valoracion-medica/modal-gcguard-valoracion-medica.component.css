@@ -1,0 +1,21 @@
+
+mat-form-field{
+
+    width: 100% !important;
+    
+}
+
+form{
+    width: 100%;
+}
+
+mat-mdc-form-field-subscript-wrapper{
+    height: 0;
+}
+
+.toppings-panel.mat-select-panel {
+  column-count: 2;
+  column-width: 200px;
+  width: 400px;
+  max-width: 400px;
+}

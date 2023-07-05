@@ -1,0 +1,13 @@
+mat-form-field{
+
+    width: 100% !important;
+    
+}
+
+form{
+    width: 600px;
+}
+
+mat-mdc-form-field-subscript-wrapper{
+    height: 0;
+}

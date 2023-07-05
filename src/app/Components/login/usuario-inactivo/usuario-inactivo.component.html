@@ -1,0 +1,26 @@
+<div class="body">
+
+    <mat-card class="loginCard">
+
+        <mat-card-content style="padding-bottom: 15px;">
+            <img class="full-width" src="assets/images/MIG_LOGO.png">
+            <br>
+            <br>
+            <span class="EtiquetaTitulo">MALETÍN DE INFORMACIÓN DE GUARDERIAS</span>
+            <br>
+            <br>
+            <span>Usuario inactivo, reportarlo a su área normativa correspondiente.</span>
+            <br>
+            <br>
+            <button class="full-width" mat-raised-button color="primary" type="submit" (click)="RegresarLogin()">
+                Regresar a Login
+                <mat-icon>settings_backup_restore</mat-icon>
+            </button>
+
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" *ngIf="mostrarLoading"></mat-progress-bar>
+        </mat-card-footer>
+
+    </mat-card>
+</div>

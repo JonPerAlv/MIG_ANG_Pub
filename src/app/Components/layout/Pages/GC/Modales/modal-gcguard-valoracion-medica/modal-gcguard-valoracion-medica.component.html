@@ -1,0 +1,114 @@
+<h2 mat-dialog-title>{{tituloAccion}} </h2>
+
+<mat-dialog-content>
+  <form [formGroup]="frmValoracion" style="width: 100%;">
+
+    <div class="row" style="margin-top: 10px;">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #000000;">CURP</mat-label>
+          <input matInput formControlName="cCURP" style="color: #000000;font-weight: bold">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #000000;">Primer Apellido</mat-label>
+          <input matInput formControlName="cPrimerApellido" style="color: #000000;">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #000000;">Segundo Apellido</mat-label>
+          <input matInput formControlName="cSegundoApellido" style="color: #000000;">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #000000;">Nombre</mat-label>
+          <input matInput formControlName="cNombre" style="color: #000000;">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field>
+          <mat-label style="color: #000000;">Fecha Valoracion</mat-label>
+          <input matInput [matDatepicker]="dob" formControlName="dFechaEvento" style="color: #000000;">
+          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+          <mat-datepicker #dob></mat-datepicker>
+
+
+        </mat-form-field>
+
+
+      </div>
+
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label>Momento de entrega de hoja de valoración</mat-label>
+          <mat-select formControlName="iCveMomento">
+            <mat-option *ngFor="let item of listaMomentoValoracion" [value]="item.iCveMomento">
+              {{item.cDescMomento}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+
+        <mat-checkbox formControlName="bERAG">¿Caso de Enfermedad Respiratoria Aguda Grave?</mat-checkbox>
+
+      </div>
+
+      <div class="col-md-8">
+        Aumento en la cantidad de inspiraciones por minuto o respiración agitada, se le hunde el pecho, se le hunden las
+        costillas, aleteo nasal, quejido, ronquido en el pecho y cambios de color de la piel.
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-checkbox formControlName="bUrgencias">¿REQUIRIÓ ATENCIÓN DE URGENCIA?</mat-checkbox>
+      </div>
+
+      <div class="col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #000000;">Unidad Médica donde se atendió la urgencia:</mat-label>
+          <input matInput formControlName="umf" style="color: #000000;">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field [formGroup]="frmListaCheckSintomas">
+          <mat-label>Síntomas</mat-label>
+          <mat-select formControlName="sintomasSeleccionados" multiple>
+            <mat-option *ngFor="let sintoma of listaSintomas" [value]="sintoma">
+              {{ sintoma.cDescSintoma }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" style="text-align: center;">
+        <!-- <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+        <button mat-raised-button color="primary" (click)="guardarEditar_NinosUnidadesDTO()">{{botonAccion}}</button>
+        
+         -->
+        <button class="btn btn-outline-secondary bi bi-arrow-left-circle" mat-dialog-close>Volver</button>
+        <button class="btn btn-outline-primary bi bi-save" (click)="guardarEditar_registro()">{{botonAccion}}</button>
+
+
+      </div>
+
+    </div>
+
+  </form>
+
+</mat-dialog-content>

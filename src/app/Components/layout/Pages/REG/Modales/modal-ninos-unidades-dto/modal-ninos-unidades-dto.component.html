@@ -1,0 +1,91 @@
+<h2 mat-dialog-title>{{tituloAccion}} Niño(a)</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="formularioNinosUnidadesDTO" style="width: 100%;">
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>CURP</mat-label>
+                    <input matInput formControlName="cCURP">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Primer Apellido</mat-label>
+                    <input matInput formControlName="cPrimerApellido">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Segundo Apellido</mat-label>
+                    <input matInput formControlName="cSegundoApellido">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="cNombre">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Fecha Ingreso</mat-label>
+                    <input matInput [matDatepicker]="dob" formControlName="dFechaIngreso">
+                    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                    <mat-datepicker #dob></mat-datepicker>
+
+                    <mat-error *ngIf="formularioNinosUnidadesDTO.get('dFechaIngreso')?.hasError('required')">
+                        Fecha válida requerida.
+                    </mat-error>
+                </mat-form-field>
+
+
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Estatus</mat-label>
+                    <mat-select formControlName="iCveCatEstatusNino">
+                        <mat-option *ngFor="let item of listaEstatus" [value]="item.iCveCatEstatusNino">
+                            {{item.cDescEstatusUnidad}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="isIcveCatEstatusNinoInvalid()">
+                        Selección obligatoria
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Diagnóstico de Ingreso</mat-label>
+                    <input matInput formControlName="cDiagnosticoIngreso">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <!-- <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+        <button mat-raised-button color="primary" (click)="guardarEditar_NinosUnidadesDTO()">{{botonAccion}}</button>
+        
+         -->
+                <button class="btn btn-outline-secondary bi bi-arrow-left-circle" mat-dialog-close>Volver</button>
+                <button class="btn btn-outline-primary bi bi-save"
+                    (click)="guardarEditar_NinosUnidadesDTO()">{{botonAccion}}</button>
+
+
+            </div>
+
+        </div>
+
+    </form>
+
+</mat-dialog-content>

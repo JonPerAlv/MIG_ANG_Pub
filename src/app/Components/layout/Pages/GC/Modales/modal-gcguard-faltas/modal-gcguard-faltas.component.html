@@ -1,0 +1,94 @@
+<h2 mat-dialog-title>{{tituloAccion}} </h2>
+
+<mat-dialog-content>
+    <form [formGroup]="formularioFalta" style="width: 100%;">
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label style="color: #000000;">CURP</mat-label>
+                    <input matInput formControlName="cCURP" style="color: #000000;font-weight: bold">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label style="color: #000000;">Primer Apellido</mat-label>
+                    <input matInput formControlName="cPrimerApellido" style="color: #000000;">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label style="color: #000000;">Segundo Apellido</mat-label>
+                    <input matInput formControlName="cSegundoApellido" style="color: #000000;">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label style="color: #000000;">Nombre</mat-label>
+                    <input matInput formControlName="cNombre" style="color: #000000;">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label style="color: #000000;">Fecha Falta</mat-label>
+                    <input matInput [matDatepicker]="dob" formControlName="dFechaEvento" style="color: #000000;">
+                    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                    <mat-datepicker #dob></mat-datepicker>
+
+                  
+                </mat-form-field>
+
+
+            </div>
+
+            <div class="col-md-8">
+                <mat-form-field appearance="outline">
+                    <mat-label>Motivo</mat-label>
+                    <mat-select formControlName="iCveMotivoFalta">
+                        <mat-option *ngFor="let item of listaMotivosFalta" [value]="item.iCveMotivoFalta">
+                            {{item.cDescMotivoFalta}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Hospital</mat-label>
+                    <input matInput formControlName="cHospital">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Observaciones</mat-label>
+                    <input matInput formControlName="cObservacion">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <!-- <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+        <button mat-raised-button color="primary" (click)="guardarEditar_NinosUnidadesDTO()">{{botonAccion}}</button>
+        
+         -->
+                <button class="btn btn-outline-secondary bi bi-arrow-left-circle" mat-dialog-close>Volver</button>
+                <button class="btn btn-outline-primary bi bi-save"
+                    (click)="guardarEditar_NinosUnidadesDTO()">{{botonAccion}}</button>
+
+
+            </div>
+
+        </div>
+
+    </form>
+
+</mat-dialog-content>

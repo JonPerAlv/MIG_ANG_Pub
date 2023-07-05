@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>{{tituloAccion}} Personal</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="formularioPersonalUnidadesDTO" style="width: 100%;">
+
+<div class="row">
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>CURP</mat-label>
+            <input matInput formControlName="cCURP">
+        </mat-form-field>
+    
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Estatus</mat-label>
+            <mat-select formControlName="iCveCatEstatusPersonal"> 
+                <mat-option *ngFor="let item of listaEstatus" [value]="item.iCveCatEstatusPersonal">
+                    {{item.cDescEstatusUnidad}}
+                </mat-option>
+            </mat-select>
+
+        </mat-form-field>
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Primer Apellido</mat-label>
+            <input matInput formControlName="cPrimerApellido">
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Segundo Apellido</mat-label>
+            <input matInput formControlName="cSegundoApellido">
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="cNombre">
+        </mat-form-field>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <!-- <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+        <button mat-raised-button color="primary" (click)="guardarEditar_PersonalUnidadesDTO()">{{botonAccion}}</button>
+        
+         -->
+        <button class="btn btn-outline-secondary bi bi-arrow-left-circle" mat-dialog-close>Volver</button>
+        <button class="btn btn-outline-primary bi bi-save" (click)="guardarEditar_PersonalUnidadesDTO()">{{botonAccion}}</button>
+        
+
+    </div>
+    
+</div>
+      
+    </form>
+
+</mat-dialog-content>
